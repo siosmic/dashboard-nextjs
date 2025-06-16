@@ -37,9 +37,9 @@ export async function fetchLatestInvoices() {
       FROM invoices
       JOIN customers ON invoices.customer_id = customers.id
       ORDER BY invoices.date DESC
-      LIMIT 5`;
+      LIMIT 6`;
 
-    const latestInvoices = data.map((invoice) => ({
+    const latestInvoices = data.map((invoice: any) => ({
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }));
